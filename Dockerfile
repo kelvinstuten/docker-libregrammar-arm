@@ -33,14 +33,14 @@ RUN LIBREGRAMMAR_DIST_VERSION=$(xmlstarlet sel -N "x=http://maven.apache.org/POM
 
 RUN LIBREGRAMMAR_DIST_FOLDER=$(find /dist/ -name 'LanguageTool-*') && mv $LIBREGRAMMAR_DIST_FOLDER /dist/LibreGrammar
 
-FROM alpine:openjdk8
+FROM alpine:edge
 
 RUN apk update \
     && apk add \
         bash \
         libgomp \
         gcompat \
-        # openjdk8-jre
+        openjdk8-jre
 
 ARG LANGUAGETOOL_VERSION
 
