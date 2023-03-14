@@ -33,7 +33,7 @@ RUN LIBREGRAMMAR_DIST_VERSION=$(xmlstarlet sel -N "x=http://maven.apache.org/POM
 
 RUN LIBREGRAMMAR_DIST_FOLDER=$(find /dist/ -name 'LanguageTool-*') && mv $LIBREGRAMMAR_DIST_FOLDER /dist/LibreGrammar
 
-FROM openjdk:8-jre-alpine
+FROM alpine:openjdk8
 
 RUN apk update \
     && apk add \
