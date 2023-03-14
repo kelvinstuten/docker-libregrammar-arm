@@ -33,16 +33,14 @@ RUN LIBREGRAMMAR_DIST_VERSION=$(xmlstarlet sel -N "x=http://maven.apache.org/POM
 
 RUN LIBREGRAMMAR_DIST_FOLDER=$(find /dist/ -name 'LanguageTool-*') && mv $LIBREGRAMMAR_DIST_FOLDER /dist/LibreGrammar
 
-# FROM adoptopenjdk/openjdk8:aarch64-ubuntu-jre8u362-b09
-# RUN apt-get update -y \
-#     && apt-get install -y \
-#         bash \
-#         libgomp1 \
-#         gcompat
-        
 FROM alpine:edge
 
-RUN apk update && apk add --no-cache gcompat bash libgomp openjdk8-jre
+RUN apk update \
+    && apk add \
+        bash \
+        libgomp \
+        gcompat \
+        openjdk8-jre
 
 ARG LANGUAGETOOL_VERSION
 
