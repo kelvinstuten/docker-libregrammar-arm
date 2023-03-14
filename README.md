@@ -6,28 +6,25 @@ The non-ARM docker repository can be found on [GitLab](https://gitlab.com/py_cra
 mainly used for following the [original project](https://github.com/Erikvl87/docker-languagetool) available on
 [GitHub](https://github.com/py-crash/docker-libregrammar).
 
-I wrote this image since I'm looking for a Job, so I can't afford to pay LanguageTool premium and LibreGrammar activates
-most of the rules.
-
 # Setup
 
 ## Prebuilt images
 
-There is an image build in the [gitlab registry](https://gitlab.com/py_crash/docker-libregrammar/container_registry).
-This image is automatically built and updated, using [GitLab CI/CD](https://gitlab.com/py_crash/docker-libregrammar/-/blob/main/.gitlab-ci.yml),
+There is an image build in [Docker Hub](https://hub.docker.com/r/kelvinstuten/libregrammar-arm).
+This image is automatically built and updated, using [Github CI/CD](https://github.com/kelvinstuten/docker-libregrammar-arm/actions),
 each time a new tag is pushed to the repo. You can just pull it using:
 
 ```
-docker pull registry.gitlab.com/py_crash/docker-libregrammar
+docker pull kelvinstuten/libregrammar-arm
 ```
 
 This would pul the image with the `latest` tag. If you want an specific image you can browse the 
-[registry](https://gitlab.com/py_crash/docker-libregrammar/container_registry)
+[registry](https://hub.docker.com/r/kelvinstuten/libregrammar-arm)
 
 ## Setup using the Dockerfile
 This approach could be used when you plan to make changes to the `Dockerfile`.
 ```
-git clone https://github.com/py-crash/docker-libregrammar.git -b libregrammar --config core.autocrlf=input
+git clone https://github.com/kelvinstuten/docker-libregrammar-arm.git -b libregrammar --config core.autocrlf=input
 cd libregrammar
 docker build -t libregrammar .
 docker run --rm -it -p 8081:8081 libregrammar
@@ -83,7 +80,7 @@ The following `Dockerfile` contains an example on how to add words to `spelling.
 of words in `en_spelling_additions.txt` next to the `Dockerfile`. It assumes you already built the LibreGrammar image.
 
 ```Dockerfile
-FROM registry.gitlab.com/py_crash/docker-libregrammar
+FROM kelvinstuten/libregrammar-arm
 
 # Improving the spell checker
 # http://wiki.languagetool.org/hunspell-support
@@ -111,7 +108,7 @@ version: "3"
 services:
   libregrammar:
     build: ./docker-libregrammar # For building it yourself
-    image: registry.gitlab.com/py_crash/docker-libregrammar # For using the prebuilt image
+    image: kelvinstuten/libregrammar-arm # For using the prebuilt image
     container_name: libregrammar
     ports:
         - 8081:8081  # Using default port from the image
