@@ -2,8 +2,7 @@
 This repository contains a Dockerfile to create an ARM Docker image for [LibreGrammar](https://github.com/TiagoSantos81/libregrammar),
 a LanguageTool fork maintained by [TiagoSantos81](https://github.com/TiagoSantos81).
 
-The non-ARM docker repository can be found on [GitLab](https://gitlab.com/py_crash/docker-libregrammar) and was created by py_crash. There is also a mirror,
-mainly used for following the [original project](https://github.com/Erikvl87/docker-languagetool) available on
+The non-ARM docker repository from which this repository was forked can be found on [GitLab](https://gitlab.com/py_crash/docker-libregrammar) and was created by py_crash. There is also a mirror, mainly used for following the [original project](https://github.com/Erikvl87/docker-languagetool) available on
 [GitHub](https://github.com/py-crash/docker-libregrammar).
 
 # Setup
